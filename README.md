@@ -3,6 +3,22 @@
 
 ```js
 const {getStories} = require('./story-parser-acorn');
+
+const stories = getStories(fileAsString);
+// [
+//   {
+//     kind: 'Card',
+//     story: 'Basic',
+//     location: { line: 10, column: 4 }
+//   },
+//   {
+//     kind: 'Card/Atoms',
+//     story: 'Card Divider',
+//     location: { line: 67, column: 4 }
+//   },
+//   // ...
+// ]
+
 ``
 
 # Overview
