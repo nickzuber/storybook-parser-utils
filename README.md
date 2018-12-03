@@ -1,6 +1,8 @@
 
 # How to use
 
+<img width="900" src="screenshot.png" />
+
 ```js
 const {getStories} = require('./story-parser-acorn');
 
