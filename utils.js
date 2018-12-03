@@ -12,7 +12,7 @@ function formatLine (line, number, padSize) {
   return `${number.toString().padStart(padSize)} | ${line}`;
 }
 
-function printAsError (fileString, line, column) {
+function printAsError (fileString, line, column, message) {
   const lines = fileString.split('\n');
   const topIndex = line - 3;
   const aboveIndex = line - 2;
@@ -25,7 +25,7 @@ function printAsError (fileString, line, column) {
     `   ${Colors.Gray} ${formatLine(lines[topIndex], topIndex + 1, numberWidth)} ${Colors.Reset}`,
     `   ${Colors.Gray} ${formatLine(lines[aboveIndex], aboveIndex + 1, numberWidth)} ${Colors.Reset}`,
     ` ${Colors.Green} >${Colors.Reset} ${formatLine(lines[currentIndex], currentIndex + 1, numberWidth)}`,
-    `   ${Colors.Gray} ${' '.padStart(numberWidth)} |${Colors.Green} ${'^'.padStart(column)} ${Colors.Reset}`,
+    `   ${Colors.Gray} ${' '.padStart(numberWidth)} |${Colors.Green} ${'^'.padStart(column)}-- ${message}${Colors.Reset}`,
     `   ${Colors.Gray} ${formatLine(lines[belowIndex], belowIndex + 1, numberWidth)} ${Colors.Reset}`,
     `   ${Colors.Gray} ${formatLine(lines[bottomIndex], bottomIndex + 1, numberWidth)} ${Colors.Reset}`,
   ].join('\n');

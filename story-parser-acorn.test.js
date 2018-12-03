@@ -88,8 +88,7 @@ const stories = getStories(input);
 
 // For testing, print out what we've parsed and where in the file.
 stories.forEach(story => {
-  const res = printAsError(input, story.location.line, story.location.column);
-  console.log(`"${story.kind}", ${story.story}`)
+  const res = printAsError(input, story.location.line, story.location.column, `${story.kind}, ${story.story}`);
   console.log(res)
   console.log('')
 });
