@@ -1,8 +1,6 @@
 
 # How to use
 
-<img width="900" src="screenshot.png" />
-
 ```js
 const {getStories} = require('./story-parser-acorn');
 
@@ -22,6 +20,10 @@ const stories = getStories(fileAsString);
 // ]
 
 ```
+
+Run `npm run test` to see this output, and play around with the input in `./story-parser-acorn.test.js` for more testing.
+
+<img width="900" src="screenshot.png" />
 
 # Overview
 
