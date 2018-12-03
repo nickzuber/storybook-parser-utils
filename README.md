@@ -19,7 +19,7 @@ const stories = getStories(fileAsString);
 //   // ...
 // ]
 
-``
+```
 
 # Overview
 
