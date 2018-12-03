@@ -1,4 +1,10 @@
 
+# How to use
+
+```js
+const {getStories} = require('./story-parser-acorn');
+``
+
 # Overview
 
 Shift AST spec is the best one out there (in my opinion). Downside is there isn't a huge amount of community behind it. This means there aren't a lot of plugins, and so parsing JSX is extremely difficult.

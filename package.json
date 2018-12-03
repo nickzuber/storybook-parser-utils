@@ -6,12 +6,13 @@
   "dependencies": {
     "acorn": "^6.0.4",
     "acorn-jsx": "^5.0.1",
+    "chalk": "^2.4.1",
     "line-column": "^1.0.2",
     "shift-parser": "^5.2.4"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./story-parser-acorn.test.js"
   },
   "author": "Nick Zuber <zuber.nicholas@gmail.com>",
   "license": "MIT"

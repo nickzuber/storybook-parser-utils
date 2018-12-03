@@ -1,5 +1,4 @@
 const {printAsError} = require('./utils');
-const lineColumn = require("line-column");
 const {getStories} = require('./story-parser-acorn');
 
 const input = `import React, {Component} from 'react';
@@ -84,19 +83,12 @@ class CardSimulation extends Component {
   }
 }`
 
-
+// The test, parsing some file input as a string.
 const stories = getStories(input);
-const locations = lineColumn(input);
 
+// For testing, print out what we've parsed and where in the file.
 stories.forEach(story => {
-  const endLocations = locations.fromIndex(story.location.end);
-  const line = endLocations.line;
-  // Subtract 3 since we know the identifier is `add` which is 3 letters long.
-  // This will point us to the start of the expression's column.
-  const column = endLocations.col - 3;
-
-  const res = printAsError(input, line, column);
-
+  const res = printAsError(input, story.location.line, story.location.column);
   console.log(`"${story.kind}", ${story.story}`)
   console.log(res)
   console.log('')

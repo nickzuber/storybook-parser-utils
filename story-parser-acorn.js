@@ -1,5 +1,6 @@
 const acorn = require("acorn");
 const jsx = require("acorn-jsx");
+const lineColumn = require("line-column");
 
 /**
  * Given a file as a string, find all instances of a story being added via storybook.
@@ -13,13 +14,26 @@ function getStories (fileString) {
   });
 
   const allParsedStoryNodes = traverse(tree.body);
+  const locations = lineColumn(fileString);
+
   return allParsedStoryNodes.reduce((collection, parsedStories) => {
     const kind = parsedStories.kind;
-    const stories = parsedStories.stories.map(story => ({
-      kind: kind.value,
-      story: story.value,
-      location: story.location
-    }));
+    const stories = parsedStories.stories.map(story => {
+      const endLocations = locations.fromIndex(story.location.end);
+      const line = endLocations.line;
+      // Subtract 3 since we know the identifier is `add` which is 3 letters long.
+      // This will point us to the start of the expression's column.
+      const column = endLocations.col - 3;
+
+      return {
+        kind: kind.value,
+        story: story.value,
+        location: {
+          line,
+          column
+        }
+      }
+    });
     return collection.concat(stories);
   }, []);
 }
