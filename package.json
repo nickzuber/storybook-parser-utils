@@ -1,8 +1,8 @@
 {
-  "name": "js-parser-playground",
+  "name": "storybook-parser-utils",
   "version": "1.0.0",
-  "description": "Look for a `CallExpression` and enter this recursive routine:",
-  "main": "story-parser-acorn.js",
+  "description": "Utility library that parses JavaScript files for Storybook.",
+  "main": "index.js",
   "dependencies": {
     "acorn": "^6.0.4",
     "acorn-jsx": "^5.0.1",

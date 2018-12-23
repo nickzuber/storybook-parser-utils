@@ -1,5 +1,5 @@
 const {printAsError} = require('./utils');
-const {getStories} = require('./story-parser-acorn');
+const {getStories} = require('./index');
 
 const input = `import React, {Component} from 'react';
 import {storiesOf} from '@storybook/react';
