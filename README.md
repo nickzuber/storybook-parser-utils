@@ -2,7 +2,7 @@
 # How to use
 
 ```js
-const {getStories} = require('./story-parser-acorn');
+const {getStories} = require('storybook-parser-utils');
 
 const stories = getStories(fileAsString);
 // [
