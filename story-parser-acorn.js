@@ -1,6 +1,11 @@
-const acorn = require("acorn");
-const jsx = require("acorn-jsx");
+const {Parser} = require("acorn");
 const lineColumn = require("line-column");
+
+const ExtendedParser = Parser.extend(
+  require("acorn-jsx")(),
+  require('acorn-static-class-features'),
+  require('acorn-class-fields')
+);
 
 /**
  * Given a file as a string, find all instances of a story being added via storybook.
@@ -9,7 +14,7 @@ const lineColumn = require("line-column");
  * @return {Object.<kind: string, story: string, location: Location>}
  */
 function getStories (fileString) {
-  const tree = acorn.Parser.extend(jsx()).parse(fileString, {
+  const tree = ExtendedParser.parse(fileString, {
     sourceType: 'module'
   });
 

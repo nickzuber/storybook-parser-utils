@@ -8,6 +8,22 @@ import Card, {CategoryIcon} from 'components/Card';
 import Icon from 'components/Icon';
 import ErrorMessage from 'components/ErrorMessage';
 
+class ComponentWrapper extends React.Component {
+  static defaultProps = {
+    foo: true
+  }
+
+  state = {
+    foo: null
+  }
+
+  render () {
+    return (
+      <div>hello</div>
+    );
+  }
+}
+
 storiesOf('Card', module)
   .addDecorator(storyFn => <div style={{width: 269}}>{storyFn()}</div>)
   .add('Basic', () => (
